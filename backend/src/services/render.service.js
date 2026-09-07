@@ -2,20 +2,16 @@ import puppeteer from "puppeteer";
 
 export const renderEmail = async ({ html }) => {
 
-    const executablePath = await puppeteer.executablePath();
-
     const browser = await puppeteer.launch({
-
         headless: true,
 
-        executablePath,
+        executablePath: "/usr/bin/google-chrome-stable",
 
         args: [
             "--no-sandbox",
             "--disable-setuid-sandbox",
             "--disable-dev-shm-usage"
         ]
-
     });
 
     const page = await browser.newPage();
