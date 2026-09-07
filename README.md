@@ -644,12 +644,14 @@ After deploying the backend, configure the frontend environment variable:
 
 ```env
 VITE_API_URL=YOUR_DEPLOYED_BACKEND_URL
+(or use this : https://emailcompliancetool.onrender.com)
 ```
 
 For example:
 
 ```env
 VITE_API_URL=https://your-backend-domain.com
+(or use this : https://emailcompliancetool.onrender.com)
 ```
 
 Do not use the localhost URL in the production frontend:
@@ -679,14 +681,16 @@ The backend CORS configuration should allow requests from the deployed frontend.
 # Live Demo
 
 **Vercel:**  
-YOUR_VERCEL_DEPLOYED_LINK
+https://email-compliance-tool.vercel.app/
+
 
 ---
 
 # GitHub Repository
 
 **GitHub:**  
-YOUR_GITHUB_REPOSITORY_LINK
+https://github.com/officialmohitagarwal/emailComplianceTool
+
 
 ---
 
