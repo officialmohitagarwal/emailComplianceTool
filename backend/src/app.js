@@ -12,9 +12,14 @@ const PORT = process.env.PORT || 5002;
 
 
 
+const frontendUrl =
+    process.env.FRONTEND_URL || "http://localhost:5173";
+
 app.use(
     cors({
-        origin: process.env.FRONTEND_URL || "http://localhost:5173",
+        origin: frontendUrl.replace(/\/$/, ""),
+        methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"],
     })
 );
 
@@ -22,6 +27,7 @@ app.use(
 
 
 app.use(express.json());
+
 
 
 
@@ -39,7 +45,6 @@ app.get("/", (req, res) => {
 
 
 app.use("/api", analysisRoutes);
-
 
 
 
