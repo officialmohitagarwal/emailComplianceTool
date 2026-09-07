@@ -6,6 +6,8 @@ export const renderEmail = async ({ html }) => {
 
         headless: true,
 
+        executablePath: puppeteer.executablePath(),
+
         args: [
             "--no-sandbox",
             "--disable-setuid-sandbox",
@@ -17,11 +19,8 @@ export const renderEmail = async ({ html }) => {
     const page = await browser.newPage();
 
     await page.setContent(html, {
-
         waitUntil: "domcontentloaded",
-
         timeout: 10000
-
     });
 
     return {
