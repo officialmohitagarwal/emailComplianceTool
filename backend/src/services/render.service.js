@@ -2,11 +2,13 @@ import puppeteer from "puppeteer";
 
 export const renderEmail = async ({ html }) => {
 
+    const executablePath = await puppeteer.executablePath();
+
     const browser = await puppeteer.launch({
 
         headless: true,
 
-        executablePath: puppeteer.executablePath(),
+        executablePath,
 
         args: [
             "--no-sandbox",
