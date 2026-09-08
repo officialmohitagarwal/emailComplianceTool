@@ -369,38 +369,24 @@ const EmailAnalyzer = () => {
             // OVERALL SCORE
             
 
-            let overallScore =
-                getScore(
-                    backendResult?.score
-                );
-
-
             /*
-             * If backend doesn't provide an overall
-             * score, calculate it using only the two
-             * sections currently displayed:
+             * Send Readiness is calculated from the
+             * two sections currently displayed:
              *
              * Compliance
              * Link Health
+             *
+             * This prevents the UI from showing 0 when
+             * the backend does not provide an overall score.
              */
 
-            if (
-                typeof backendResult?.score !== "number" &&
-                !(
-                    backendResult?.score &&
-                    typeof backendResult.score.score === "number"
-                )
-            ) {
-
-                overallScore =
-                    Math.round(
-                        (
-                            complianceScore +
-                            linksScore
-                        ) / 2
-                    );
-
-            }
+            const overallScore =
+                Math.round(
+                    (
+                        complianceScore +
+                        linksScore
+                    ) / 2
+                );
 
 
 
